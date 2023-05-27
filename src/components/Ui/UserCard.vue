@@ -10,10 +10,9 @@
           <v-list three-line>
             <template v-for="(item, index) in users">
               <v-list-subheader
-                  v-if="item.header"
-                  :key="item.header"
-                  v-text="item.header"
-              ></v-list-subheader>
+                v-if="item.header"
+                :key="item.header"
+              >{{ item.header }}</v-list-subheader>
 
               <v-divider
                   v-else-if="item.divider"
@@ -27,14 +26,15 @@
                   :prepend-avatar="item.avatar"
                   @click="showAddress(item.id)"
               >
-                <v-list-item-title>
-                  <v-list-item-title v-html="item.title"></v-list-item-title>
-                  <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-                </v-list-item-title>
+                <v-list-item>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ item.subtitle }}</v-list-item-subtitle>
+                </v-list-item>
 
-                <v-list-item-title  v-if="currentId === item.id">
-                  <h2 v-html="item.address"></h2>
-                </v-list-item-title>
+                <v-list-item v-if="currentId === item.id">
+                  <v-list-item-subtitle>{{ item.address }}</v-list-item-subtitle>
+                </v-list-item>
+                
               </v-list-item>
             </template>
           </v-list>

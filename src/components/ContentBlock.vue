@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-row
-        align="center"
         justify="center"
         class="ma-4"
     >
@@ -20,9 +19,9 @@
         @country-selected="handleCountrySelected"
         @score-selected="handleScoreSelected"
       />
-      <UserCard  v-if="users.length  && !isLoading" :users="users"></UserCard>
-      <v-progress-circular class="ml-10" v-if="isLoading" indeterminate color="primary"></v-progress-circular>
-      <span class="ml-10" v-else-if="!users.length">Пользователя с такими параметрами нет</span>
+      <v-progress-circular class="v-col-md-4 v-col-12" v-if="isLoading" indeterminate color="primary" :size="45" :width="5"></v-progress-circular>
+      <UserCard  v-else-if="users.length" :users="users"></UserCard>
+      <span class="v-col-md-4 v-col-12 not-found" v-else>Пользователя с такими параметрами нет</span>
     </v-row>
   </v-container>
 </template>
@@ -102,11 +101,14 @@ export default {
       scores,
       isLoading,
       handleCountrySelected,
-      handleScoreSelected
+      handleScoreSelected,
     }
   }
 }
 </script>
 
 <style>
+.not-found {
+  padding: 15px 40px;
+}
 </style>

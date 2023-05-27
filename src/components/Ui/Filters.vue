@@ -46,7 +46,12 @@ export default {
       emit('score-selected', selectedScore.value)
     }
     
-    return { selectedCountry, selectedScore, emitCountry, emitScore }
+    return { 
+      selectedCountry,
+      selectedScore, 
+      emitCountry, 
+      emitScore, 
+    }
   }
 }
 </script>
